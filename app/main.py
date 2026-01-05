@@ -55,9 +55,21 @@ async def lifespan(app: FastAPI):
         except Exception as e:
             logger.error(f"Failed to initialize Sentry: {str(e)}")
 
-    # TODO: Initialize database connection pool
-    # TODO: Initialize Redis connection
-    # TODO: Initialize other services
+    # Initialize database connections
+    try:
+        from app.db.supabase import initialize_database
+        initialize_database()
+    except Exception as e:
+        logger.error(f"Database initialization failed: {str(e)}")
+        raise
+
+    # Initialize Redis
+    try:
+        from app.db.redis import initialize_redis
+        await initialize_redis()
+    except Exception as e:
+        logger.warning(f"Redis initialization failed: {str(e)}")
+        # Redis is not critical, continue without it
 
     logger.info("Application startup complete")
 
@@ -68,9 +80,19 @@ async def lifespan(app: FastAPI):
     # ========================================================================
     logger.info("Shutting down application...")
 
-    # TODO: Close database connections
-    # TODO: Close Redis connections
-    # TODO: Cleanup other resources
+    # Close database connections
+    try:
+        from app.db.supabase import close_database_connections
+        await close_database_connections()
+    except Exception as e:
+        logger.error(f"Error closing database: {str(e)}")
+
+    # Close Redis connections
+    try:
+        from app.db.redis import close_redis
+        await close_redis()
+    except Exception as e:
+        logger.error(f"Error closing Redis: {str(e)}")
 
     logger.info("Application shutdown complete")
 
