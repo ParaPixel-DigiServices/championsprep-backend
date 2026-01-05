@@ -1,0 +1,59 @@
+# ============================================================================
+# StudyZen Backend - Production Dependencies
+# Python 3.11+
+# Last Updated: January 2026
+# ============================================================================
+
+# Core Framework
+# --------------
+fastapi==0.115.5                    # Modern async web framework
+uvicorn[standard]==0.32.1           # ASGI server with performance extras
+python-multipart==0.0.20            # Form data and file uploads
+
+# Supabase & Database
+# -------------------
+supabase==2.27.0                    # Supabase Python client
+postgrest==2.27.0                 # PostgREST client
+sqlalchemy==2.0.36                  # SQL toolkit and ORM
+alembic==1.14.0                     # Database migrations
+psycopg2-binary==2.9.10             # PostgreSQL adapter
+
+# Caching & Session
+# -----------------
+redis==5.2.0                        # Redis client
+hiredis==3.0.0                      # C parser for better performance
+
+# Authentication & Security
+# --------------------------
+python-jose[cryptography]==3.3.0    # JWT tokens
+passlib[bcrypt]==1.7.4              # Password hashing
+pydantic[email]==2.11.7             # Data validation with email support
+pydantic-settings==2.7.1            # Settings management
+python-dotenv==1.0.1                # Environment variables
+
+# AI Integration
+# --------------
+google-generativeai==0.8.3          # Google Gemini AI
+
+# Communication
+# -------------
+resend==2.6.0                       # Email service
+httpx==0.28.1                       # Async HTTP client
+
+# Utilities
+# ---------
+aiofiles==24.1.0                    # Async file operations
+python-dateutil==2.9.0              # Date/time utilities
+email-validator==2.2.0              # Email validation
+
+# WebSockets
+# ----------
+websockets==14.1                    # WebSocket support
+
+# Monitoring & Error Tracking
+# ----------------------------
+sentry-sdk[fastapi]==2.21.0         # Error tracking
+
+# Development Dependencies
+# -------------------------
+# (Install separately with: pip install -r requirements-dev.txt)

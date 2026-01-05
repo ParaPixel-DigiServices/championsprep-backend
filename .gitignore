@@ -1,0 +1,130 @@
+# ============================================================================
+# StudyZen Backend - Git Ignore Rules
+# ============================================================================
+
+# Python
+# ------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environment
+# -------------------
+venv/
+env/
+ENV/
+.venv
+env.bak/
+venv.bak/
+
+# Environment Variables
+# ---------------------
+.env
+.env.*
+!.env.example
+.envrc
+
+# IDE & Editors
+# -------------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+*.sublime-project
+*.sublime-workspace
+
+# Testing
+# -------
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+*.cover
+.hypothesis/
+.tox/
+coverage.xml
+*.log
+
+# MyPy
+# ----
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Ruff
+# ----
+.ruff_cache/
+
+# Database
+# --------
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+
+# Alembic
+# -------
+# Keep versions folder but ignore compiled files
+alembic/versions/*.pyc
+
+# Logs
+# ----
+*.log
+logs/
+*.log.*
+
+# Temporary Files
+# ---------------
+*.tmp
+temp/
+tmp/
+*.bak
+*.swp
+
+# OS Files
+# --------
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# Documentation Build
+# -------------------
+site/
+docs/_build/
+
+# Jupyter Notebooks
+# -----------------
+.ipynb_checkpoints/
+*.ipynb
+
+# Redis
+# -----
+dump.rdb
+
+# Secrets & Keys
+# --------------
+*.pem
+*.key
+*.crt
+secrets/
