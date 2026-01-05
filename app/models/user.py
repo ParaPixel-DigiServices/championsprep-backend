@@ -2,7 +2,7 @@
 Pydantic models for user data.
 """
 
-from typing import Optional
+from typing import Optional, List
 from pydantic import BaseModel, EmailStr, Field
 from datetime import datetime, date
 
@@ -155,3 +155,31 @@ class PreferencesUpdate(BaseModel):
     
     preferred_language: Optional[str] = Field(None, max_length=10)
     timezone: Optional[str] = Field(None, max_length=50)
+
+
+class ProfileCompletionRequest(BaseModel):
+    """Complete profile setup (first-time only)."""
+    
+    grade_level: int = Field(..., ge=11, le=12, description="Grade level (11 or 12)")
+    board: str = Field(default="CBSE", description="Educational board")
+    subjects: List[str] = Field(..., min_length=1, description="Selected subjects")
+    preferred_language: str = Field(default="en", description="Preferred language")
+    
+    # Optional fields
+    school_name: Optional[str] = Field(None, max_length=255)
+    target_exam: Optional[str] = Field(None, max_length=100)
+    study_hours_per_day: Optional[int] = Field(None, ge=1, le=12)
+    
+    model_config = {
+        "json_schema_extra": {
+            "example": {
+                "grade_level": 11,
+                "board": "CBSE",
+                "subjects": ["Accountancy", "Business Studies", "Economics"],
+                "preferred_language": "en",
+                "school_name": "Delhi Public School",
+                "target_exam": "CBSE Board 2026",
+                "study_hours_per_day": 4
+            }
+        }
+    }

@@ -4,7 +4,8 @@ Includes all endpoint routers for version 1 of the API.
 """
 
 from fastapi import APIRouter
-from app.api.v1.endpoints import auth
+
+from app.api.v1.endpoints import auth, users
 
 # Create main API router
 api_router = APIRouter()
@@ -12,8 +13,10 @@ api_router = APIRouter()
 # Include authentication routes
 api_router.include_router(auth.router)
 
+# Include user profile routes
+api_router.include_router(users.router)
+
 # Future routers will be added here:
-# api_router.include_router(users.router)
 # api_router.include_router(content.router)
 # api_router.include_router(study.router)
 # api_router.include_router(flashcards.router)

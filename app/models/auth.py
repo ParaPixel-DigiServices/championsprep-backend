@@ -181,6 +181,7 @@ class UserResponse(BaseModel):
     is_active: bool = Field(..., description="Account active status")
     is_verified: bool = Field(..., description="Email verified status")
     email_verified_at: Optional[datetime] = Field(None, description="Email verification timestamp")
+    profile_completed: bool = Field(default=False, description="Profile setup completed")
     
     # Preferences
     preferred_language: str = Field(default="en", description="Preferred language")
