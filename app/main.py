@@ -124,9 +124,10 @@ def create_application() -> FastAPI:
     # Register middleware
     register_middleware(app)
 
-    # TODO: Register API routers
-    # from app.api.router import api_router
-    # app.include_router(api_router, prefix=settings.API_V1_PREFIX)
+    # Register API routes
+    from app.api.v1.router import api_router
+    app.include_router(api_router, prefix=settings.API_V1_PREFIX)
+    logger.info(f"API routes registered at {settings.API_V1_PREFIX}")
 
     return app
 
