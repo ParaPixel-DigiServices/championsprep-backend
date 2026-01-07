@@ -13,7 +13,7 @@ python-multipart==0.0.20            # Form data and file uploads
 # Supabase & Database
 # -------------------
 supabase==2.27.0                    # Supabase Python client
-postgrest==2.27.0                 # PostgREST client
+postgrest==2.27.0                   # PostgREST client (must match supabase version)
 sqlalchemy==2.0.36                  # SQL toolkit and ORM
 alembic==1.14.0                     # Database migrations
 psycopg2-binary==2.9.10             # PostgreSQL adapter
@@ -33,7 +33,10 @@ python-dotenv==1.0.1                # Environment variables
 
 # AI Integration
 # --------------
+openai==1.58.1                       # OpenAI GPT-4
+anthropic==0.40.0                    # Claude 3.5 Sonnet
 google-generativeai==0.8.3          # Google Gemini AI
+PyPDF2==3.0.1                        # PDF text extraction
 
 # Communication
 # -------------

@@ -114,6 +114,22 @@ class Settings(BaseSettings):
     CACHE_ENABLED: bool = Field(default=True)
 
     # ============================================================================
+    # OPENAI GPT-4
+    # ============================================================================
+    OPENAI_API_KEY: str = Field(..., description="OpenAI API key")
+    OPENAI_MODEL: str = Field(default="gpt-4o-mini")
+    OPENAI_MAX_TOKENS: int = Field(default=4096)
+    OPENAI_TEMPERATURE: float = Field(default=0.3)
+
+    # ============================================================================
+    # ANTHROPIC CLAUDE
+    # ============================================================================
+    ANTHROPIC_API_KEY: str = Field(..., description="Anthropic Claude API key")
+    ANTHROPIC_MODEL: str = Field(default="claude-3-5-sonnet-20241022")
+    ANTHROPIC_MAX_TOKENS: int = Field(default=8192)
+    ANTHROPIC_TEMPERATURE: float = Field(default=0.7)
+
+    # ============================================================================
     # GOOGLE GEMINI AI
     # ============================================================================
     GEMINI_API_KEY: str = Field(..., description="Google Gemini API key")
